@@ -16,27 +16,6 @@ var Bitstamp = function(opts) {
       order_book: true,
       diff_order_book: true,
 
-
-      // EUR/USD market:
-      live_trades_eurusd: false,
-      order_book_eurusd: false,
-      diff_order_book_eurusd: false,
-
-      // XRP/USD market:
-      live_trades_xrpusd: false,
-      order_book_xrpusd: false,
-      diff_order_book_xrpusd: false,
-
-
-      // LTC/USD market:
-      live_trades_ltcusd: false,
-      order_book_ltcusd: false,
-      diff_order_book_ltcusd: false,
-
-      // LTC/USD market:
-      live_trades_ethusd: false,
-      order_book_ethusd: false,
-      diff_order_book_ethusd: false,
     };
   }
 
@@ -62,75 +41,174 @@ util.inherits(Bitstamp, EventEmitter);
 Bitstamp.prototype.subscribe = function() {
 
   // BTC/USD events
-  if(this.opts.live_trades) {
+  if(typeof this.opts.live_trades !== 'undefined' && this.opts.live_trades == true) {
     this.client.subscribe('live_trades');
     this.client.bind('trade', this.broadcast('trade'));
   }
-  if(this.opts.order_book) {
+  if(typeof this.opts.order_book !== 'undefined' && this.opts.order_book == true) {
     this.client.subscribe('order_book');
     this.client.bind('data', this.broadcast('data'));
   }
-  if(this.opts.diff_order_book) {
+  if(typeof this.opts.diff_order_book !== 'undefined' && this.opts.diff_order_book == true) {
     this.client.subscribe('diff_order_book');
     this.client.bind('data', this.broadcast('data'));
   }
 
   // EUR/USD events
-  if(this.opts.live_trades_eurusd) {
+  if(typeof this.opts.live_trades_eurusd !== 'undefined' && this.opts.live_trades_eurusd == true) {
     this.client.subscribe('live_trades_eurusd');
     this.client.bind('trade', this.broadcast('trade'));
   }
-  if(this.opts.order_book_eurusd) {
+  if(typeof this.opts.order_book_eurusd !== 'undefined' && this.opts.order_book_eurusd == true) {
     this.client.subscribe('order_book_eurusd');
     this.client.bind('data', this.broadcast('data'));
   }
-  if(this.opts.diff_order_book_eurusd) {
+  if(typeof this.opts.diff_order_book_eurusd !== 'undefined' && this.opts.diff_order_book_eurusd == true) {
     this.client.subscribe('diff_order_book_eurusd');
     this.client.bind('data', this.broadcast('data'));
   }
 
   // XRP/USD events
-  if(this.opts.live_trades_xrpusd) {
+  if(typeof this.opts.live_trades_xrpusd !== 'undefined' && this.opts.live_trades_xrpusd == true) {
     this.client.subscribe('live_trades_xrpusd');
     this.client.bind('trade', this.broadcast('trade'));
   }
-  if(this.opts.order_book_xrpusd) {
+  if(typeof this.opts.order_book_xrpusd !== 'undefined' && this.opts.order_book_xrpusd == true) {
     this.client.subscribe('order_book_xrpusd');
     this.client.bind('data', this.broadcast('data'));
   }
-  if(this.opts.diff_order_book_xrpusd) {
+  if(typeof this.opts.diff_order_book_xrpusd !== 'undefined' && this.opts.diff_order_book_xrpusd == true) {
     this.client.subscribe('diff_order_book_xrpusd');
     this.client.bind('data', this.broadcast('data'));
   }
 
 
   // LTC/USD events
-  if(this.opts.live_trades_ltcusd) {
+  if(typeof this.opts.live_trades_ltcusd !== 'undefined' && this.opts.live_trades_ltcusd == true) {
     this.client.subscribe('live_trades_ltcusd');
     this.client.bind('trade', this.broadcast('trade'));
   }
-  if(this.opts.order_book_ltcusd) {
+  if(typeof this.opts.order_book_ltcusd !== 'undefined' && this.opts.order_book_ltcusd == true) {
     this.client.subscribe('order_book_ltcusd');
     this.client.bind('data', this.broadcast('data'));
   }
-  if(this.opts.diff_order_book_ltcusd) {
+  if(typeof this.opts.diff_order_book_ltcusd !== 'undefined' && this.opts.diff_order_book_ltcusd == true) {
     this.client.subscribe('diff_order_book_ltcusd');
     this.client.bind('data', this.broadcast('data'));
   }
 
   // ETH/USD events
-  if(this.opts.live_trades_ethusd) {
+  if(typeof this.opts.live_trades_ethusd !== 'undefined' && this.opts.live_trades_ethusd == true) {
     this.client.subscribe('live_trades_ethusd');
     this.client.bind('trade', this.broadcast('trade'));
   }
-  if(this.opts.order_book_ethusd) {
+  if(typeof this.opts.order_book_ethusd !== 'undefined' && this.opts.order_book_ethusd == true) {
     this.client.subscribe('order_book_ethusd');
     this.client.bind('data', this.broadcast('data'));
   }
-  if(this.opts.diff_order_book_ethusd) {
+  if(typeof this.opts.diff_order_book_ethusd !== 'undefined' && this.opts.diff_order_book_ethusd == true) {
     this.client.subscribe('diff_order_book_ethusd');
     this.client.bind('data', this.broadcast('data'));
   }
+
+  // BTC/EUR events
+  if(typeof this.opts.live_trades_btceur !== 'undefined' && this.opts.live_trades_btceur == true) {
+    this.client.subscribe('live_trades_btceur');
+    this.client.bind('trade', this.broadcast('trade'));
+  }
+  if(typeof this.opts.order_book_btceur !== 'undefined' && this.opts.order_book_btceur == true) {
+    this.client.subscribe('order_book_btceur');
+    this.client.bind('data', this.broadcast('data'));
+  }
+  if(typeof this.opts.diff_order_book_btceur !== 'undefined' && this.opts.diff_order_book_btceur == true) {
+    this.client.subscribe('diff_order_book_btceur');
+    this.client.bind('data', this.broadcast('data'));
+  }
+
+  // XRP/EUR events
+  if(typeof this.opts.live_trades_xrpeur !== 'undefined' && this.opts.live_trades_xrpeur == true) {
+    this.client.subscribe('live_trades_xrpeur');
+    this.client.bind('trade', this.broadcast('trade'));
+  }
+  if(typeof this.opts.order_book_xrpeur !== 'undefined' && this.opts.order_book_xrpeur == true) {
+    this.client.subscribe('order_book_xrpeur');
+    this.client.bind('data', this.broadcast('data'));
+  }
+  if(typeof this.opts.diff_order_book_xrpeur !== 'undefined' && this.opts.diff_order_book_xrpeur == true) {
+    this.client.subscribe('diff_order_book_xrpeur');
+    this.client.bind('data', this.broadcast('data'));
+  }
+
+  // XRP/BTC events
+  if(typeof this.opts.live_trades_xrpbtc !== 'undefined' && this.opts.live_trades_xrpbtc == true) {
+    this.client.subscribe('live_trades_xrpbtc');
+    this.client.bind('trade', this.broadcast('trade'));
+  }
+  if(typeof this.opts.order_book_xrpbtc !== 'undefined' && this.opts.order_book_xrpbtc == true) {
+    this.client.subscribe('order_book_xrpbtc');
+    this.client.bind('data', this.broadcast('data'));
+  }
+  if(typeof this.opts.diff_order_book_xrpbtc !== 'undefined' && this.opts.diff_order_book_xrpbtc == true) {
+    this.client.subscribe('diff_order_book_xrpbtc');
+    this.client.bind('data', this.broadcast('data'));
+  }
+
+  // LTC/EUR events
+  if(typeof this.opts.live_trades_ltceur !== 'undefined' && this.opts.live_trades_ltceur == true) {
+    this.client.subscribe('live_trades_ltceur');
+    this.client.bind('trade', this.broadcast('trade'));
+  }
+  if(typeof this.opts.order_book_ltceur !== 'undefined' && this.opts.order_book_ltceur == true) {
+    this.client.subscribe('order_book_ltceur');
+    this.client.bind('data', this.broadcast('data'));
+  }
+  if(typeof this.opts.diff_order_book_ltceur !== 'undefined' && this.opts.diff_order_book_ltceur == true) {
+    this.client.subscribe('diff_order_book_ltceur');
+    this.client.bind('data', this.broadcast('data'));
+  }
+
+  // LTC/BTC events
+  if(typeof this.opts.live_trades_ltcbtc !== 'undefined' && this.opts.live_trades_ltcbtc == true) {
+    this.client.subscribe('live_trades_ltcbtc');
+    this.client.bind('trade', this.broadcast('trade'));
+  }
+  if(typeof this.opts.order_book_ltcbtc !== 'undefined' && this.opts.order_book_ltcbtc == true) {
+    this.client.subscribe('order_book_ltcbtc');
+    this.client.bind('data', this.broadcast('data'));
+  }
+  if(typeof this.opts.diff_order_book_ltcbtc !== 'undefined' && this.opts.diff_order_book_ltcbtc == true) {
+    this.client.subscribe('diff_order_book_ltcbtc');
+    this.client.bind('data', this.broadcast('data'));
+  }
+
+  // ETH/EUR events
+  if(typeof this.opts.live_trades_etheur !== 'undefined' && this.opts.live_trades_etheur == true) {
+    this.client.subscribe('live_trades_etheur');
+    this.client.bind('trade', this.broadcast('trade'));
+  }
+  if(typeof this.opts.order_book_etheur !== 'undefined' && this.opts.order_book_etheur == true) {
+    this.client.subscribe('order_book_etheur');
+    this.client.bind('data', this.broadcast('data'));
+  }
+  if(typeof this.opts.diff_order_book_etheur !== 'undefined' && this.opts.diff_order_book_etheur == true) {
+    this.client.subscribe('diff_order_book_etheur');
+    this.client.bind('data', this.broadcast('data'));
+  }
+
+  // ETH/BTC events
+  if(typeof this.opts.live_trades_ethbtc !== 'undefined' && this.opts.live_trades_ethbtc == true) {
+    this.client.subscribe('live_trades_ethbtc');
+    this.client.bind('trade', this.broadcast('trade'));
+  }
+  if(typeof this.opts.order_book_ethbtc !== 'undefined' && this.opts.order_book_ethbtc == true) {
+    this.client.subscribe('order_book_ethbtc');
+    this.client.bind('data', this.broadcast('data'));
+  }
+  if(typeof this.opts.diff_order_book_ethbtc !== 'undefined' && this.opts.diff_order_book_ethbtc == true) {
+    this.client.subscribe('diff_order_book_ethbtc');
+    this.client.bind('data', this.broadcast('data'));
+  }
+
 };
 
 Bitstamp.prototype.broadcast = function(name) {
